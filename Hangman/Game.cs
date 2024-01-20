@@ -282,5 +282,33 @@ internal class Game
 
         // show turns left
         Console.WriteLine($"GAME OVER. Turns left: {TurnsLeft}");
+        Console.ReadLine();
+    }
+
+    public bool AskToQuit()
+    {
+        bool quit = false;
+        bool validInput = false;
+        do
+        {
+            Console.Clear();
+            Console.WriteLine("Press 'y' to play again");
+            Console.WriteLine("Press 'n' to quit");
+            string playAgain = Console.ReadLine();
+
+            if (playAgain == "y")
+            {
+                validInput = true;
+                quit = false;
+            }
+            if (playAgain == "n")
+            {
+                validInput = true;
+                quit = true;
+            }
+        }
+        while (!validInput);
+
+        return quit;
     }
 }
